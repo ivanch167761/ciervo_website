@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-
+from django.conf import settings
 from base.models import Product
 from .serializers import ProductSerializer
 # Create your views here.
@@ -10,7 +10,7 @@ from .serializers import ProductSerializer
 def getRoutes(request):
     routes = [ 
             '/api/products',
-            'api/products/<id>/'            
+            'api/products/<id>/',
             ]
     return Response(routes)
 
