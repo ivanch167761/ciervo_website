@@ -21,15 +21,18 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 # This wrapper turns your list into a regex URL matcher
+"""
 
+    re_path('(^(?!(api|admin|images|ciervo.svg)).*$)',
+    TemplateView.as_view(template_name="index.html")),
+
+"""
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-#    path('', TemplateView.as_view(template_name='index1.html')),
+    path('', TemplateView.as_view(template_name='index.html')),
     path('api/', include('base.urls')),
-    re_path('(^(?!(api|admin|images|ciervo.svg)).*$)',
-    TemplateView.as_view(template_name="index.html")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
