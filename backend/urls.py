@@ -31,7 +31,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     #path('', TemplateView.as_view(template_name='index.html')),
     path('api/', include('base.urls')),
-    re_path('(^(?!(api|admin|images|ciervo.svg)).*$)',
+    re_path('(^(?!(api|admin|images)).*$)',
     TemplateView.as_view(template_name="index.html")),
 ]
 
